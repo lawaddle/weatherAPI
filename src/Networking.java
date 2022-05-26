@@ -23,6 +23,8 @@ public class Networking {
         String res = makeAPICall(call);
 
         return parseWeatherInfoJSON(res);
+
+
     }
 
     private String makeAPICall(String url)
@@ -49,7 +51,7 @@ public class Networking {
         double tempF = curr.getDouble("temp_f");
         JSONObject cond = curr.getJSONObject("condition");
         String condText = cond.getString("text");
-        String icon = cond.getString("icon");
+        String icon = "https:" + cond.getString("icon");
 
         weatherInfo weather = new weatherInfo(name, condText, icon, tempF, tempC);
 
